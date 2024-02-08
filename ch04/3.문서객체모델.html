@@ -34,6 +34,7 @@
     </ul>
     <script>
         // 문서 객체 선택
+        // documet.querySelectorAll(); document.getElementsByClassName=> 배열로 생성됨
         const h3 = document.querySelector('h3');
         h3.style.color = 'red';
 
@@ -121,8 +122,8 @@
         console.log('html : '+html);    
 
         const contents = document.getElementsByClassName('content');
-        contents[0].innerText = '<i> TEXT 내용입니다.</i>';
-        contents[1].innerHTML = '<i> HTML 내용입니다.</i>';
+        contents[0].innerText = '<i>innerText 내용입니다.</i>';
+        contents[1].innerHTML = '<i>innerHTML 내용입니다.</i>';
 
         // 클래스 속성
         const boxs = document.getElementsByClassName('box');

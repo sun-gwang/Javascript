@@ -24,7 +24,7 @@
         
         arr2.forEach((item,index)=>{
             document.write('index : '+index+',item : '+item+'<br>')
-        })
+        });
         
         // 배열 원소 가공처리
         const arr3 = arr1.map((item)=>{
@@ -33,7 +33,7 @@
         
         arr3.forEach((item,index)=>{
             document.write('index : '+index+',item : '+item+'<br>')
-        })
+        });
         
         const arr4 = arr3.map(item=> item*2);
         document.write('arr4 :'+arr4 +'<br>');
@@ -68,6 +68,93 @@
         document.write('r6 : '+r6+'<br>');
         document.write('r7 : '+r7+'<br>');
         document.write('r8 : '+r8+'<br>');
+    </script>
+
+    <h4>정규표현식</h4>
+    <script>
+        // 정규표현식
+        const regxp = new RegExp(/\d{3}/);
+        let t1= regxp.test('hello');
+        let t2= regxp.test('1');
+        let t3= regxp.test('123');
+        let t4= regxp.test('1234');
+
+        document.write('t1 : ' + t1 + `<br>`);
+        document.write('t2 : ' + t2 + `<br>`);
+        document.write('t3 : ' + t3 + `<br>`);
+        document.write('t4 : ' + t4 + `<br>`);
+
+        const hp = '010-1234-1001';
+        const matched = hp.match(/\d{4}/);
+        // const matchAll = hp.matchAll(/\d{4}/);
+        document.write('matched : ' + matched + '<br>');
+
+        // 정규 표현식 플래그
+        /*
+            i : 대소문자 무시
+            g : 전체
+        */
+       
+       const testStr1 = 'Hello world hello javascript hello regex';
+       
+       const re1 = /hello/;
+       const re2 = /hello/i;
+       const re3 = /hello/g;
+       const re4 = /hello/ig;
+       
+       document.write('re1 result : ' + testStr1.match(re1) + '<br>');
+       document.write('re2 result : ' + testStr1.match(re2) + '<br>');
+       document.write('re3 result : ' + testStr1.match(re3) + '<br>');
+       document.write('re4 result : ' + testStr1.match(re4) + '<br>');
+       
+       // 정규표현식 메타
+       /*
+            ^ : 정규표현식 문자열 시작
+            $ : 정규표현식 문자열 끝
+            { : 정규표현식 문자열 반복 시작
+            } : 정규표현식 문자열 반복 끝
+            | : 정규표현식 OR
+            [ : 사용자 정의 정규표현식 시작
+            ] : 사용자 정의 정규표현식 끝
+            - : 정규표현식 문자열 범위
+            . : 문자 하나
+            + : 문자가 1번 이상 반복되는 문자열
+            ? : 문자가 0번 또는 1번인 문자열
+            * : 문자가 0번 이상 반복되는 문자열 
+       */
+        const reg1 = /^[0-9]+$/;       // 숫자
+        const reg2 = /^[0-9]\d*/;      // 숫자 (양수)
+        const reg3 = /^\-[0-9]\d*/;    // 숫자 (음수)
+        const reg4 = /^[a-zA-Z]+$/;    // 영문자
+        const reg5 = /^[a-zA-z0-9]+$/; // 숫자와 영문자
+        const reg6 = /^[가-힣]+$/;     // 한글문자
+        const reg7 = /^.{5,10}$/      // 문자열 길이가 5~10
+
+        document.write('reg1 test : ' + reg1.test('apple') + '<br>');
+        document.write('reg1 test : ' + reg1.test('123') + '<br>');
+        document.write('reg2 test : ' + reg2.test('10') + '<br>');
+        document.write('reg2 test : ' + reg2.test('-10') + '<br>');
+        document.write('reg3 test : ' + reg3.test('-10') + '<br>');
+        document.write('reg4 test : ' + reg4.test('apple') + '<br>');
+        document.write('reg4 test : ' + reg4.test('apple123') + '<br>');
+        document.write('reg4 test : ' + reg4.test('APPLE') + '<br>');
+        document.write('reg5 test : ' + reg5.test('apple123') + '<br>');
+        document.write('reg6 test : ' + reg6.test('홍길동') + '<br>');
+        document.write('reg6 test : ' + reg6.test('홍길동123') + '<br>');
+        document.write('reg7 test : ' + reg7.test('abcd') + '<br>');
+        document.write('reg7 test : ' + reg7.test('abcde') + '<br>');
+        document.write('reg7 test : ' + reg7.test('abcd123') + '<br>');
+
+        // 자주 사용하는 정규표현식
+        const regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        const regPass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        const regHp = /^\d{3}-\d{3,4}-\d{4}$/;
+       
+        document.write('regEmail : ' + regEmail.test('홍길동@한국.com')+'<br>');
+        document.write('regEmail : ' + regEmail.test('hong1234@korea.com')+'<br>');
+        document.write('regPass : ' + regPass.test('Pass1234!@#')+'<br>');
+        document.write('regHp : ' + regHp.test('010-123-1001')+'<br>');
+        
     </script>
 
     <h4>Math</h4>
