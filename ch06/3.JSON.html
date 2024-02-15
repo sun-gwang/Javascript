@@ -48,6 +48,27 @@
             document.write('addr : '+user.addr + '<br>');
             document.write('</p>');
         }
+
+        // JSON 함수
+        const member = {
+            "uid" : "a101",
+            "name" : "홍길동",
+            "age" : 25,
+            "hp" : "010-1234-1001"
+        }
+
+        document.write('member : ' + member + '<br>');
+        
+        //JSON.stringify() : JSON을 문자열로 변환
+        const strMember = JSON.stringify(member);
+        document.write('strMember : ' + strMember + '<br>');
+        
+        // JSON.parse();
+        const parsedMember = JSON.parse(strMember);
+        document.write('parsedMember.uid : ' + parsedMember.uid + '<br>');
+        document.write('parsedMember.name : ' + parsedMember.name + '<br>');
+        document.write('parsedMember.age : ' + parsedMember.age + '<br>');
+        document.write('parsedMember.hp : ' + parsedMember.hp + '<br>');
     </script>
 </body>
 </html>
